@@ -1,28 +1,26 @@
 import 'dart:async';
 import 'dart:io';
 
+import 'package:app_connect_bot/variables/var.dart';
 import 'package:app_connect_bot/view/view_connect_bot.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 
 class ControllerConnect extends StatefulWidget {
-   ControllerConnect({
+   const ControllerConnect({
     super.key,
     required this.title,
-    required this.port_server_socket,
-    required this.credential,
   });
 
   final String title;
-  int port_server_socket = 8080;
-  String credential;
+
 
   @override
   State<ControllerConnect> createState() => _ControllerConnectState();
 }
 
 class _ControllerConnectState extends State<ControllerConnect> {
-  int _counter = 0;
+
   Socket? socket;
 
   bool boolStatusConnectToSocketServer = false;
@@ -183,11 +181,9 @@ class _ControllerConnectState extends State<ControllerConnect> {
 
       //socket = await Socket.connect("127.0.0.1", 8080);
       print('Connected to: ${socket?.remoteAddress.address}:${socket?.remotePort}');
-
       // Vous pouvez ici envoyer des données au serveur via le socket
-       //socket?.write('Hello Server!');
-
-      socket?.write(widget.credential);
+      //socket?.write('Hello Server!');
+      socket?.write(credentialSave.toJson());
 
 
       // Vous pouvez également écouter les données entrantes du serveur
@@ -243,7 +239,7 @@ class _ControllerConnectState extends State<ControllerConnect> {
       print('Adresse IP modifiée (recuperation Adress Serveur) socket : $modifiedIp');
 
       //connectToSocketServer(modifiedIp, 8765);
-      await connectToSocketServer(modifiedIp, widget.port_server_socket);
+      await connectToSocketServer(modifiedIp, port_server_socket);
       //await connectToSocketServer("192.168.137.1", 3235);
     }
 

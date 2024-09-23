@@ -1,3 +1,4 @@
+import 'package:app_connect_bot/view/view_form_credential.dart';
 import 'package:flutter/material.dart';
 
 
@@ -81,7 +82,7 @@ class _ViewConnectBotState extends State<ViewConnectBot> {
                       return
                         Container(
                           padding: EdgeInsets.all(10),
-                          margin: EdgeInsets.only(left: 40, right: 40, top: 10, bottom: 10),
+                          margin: EdgeInsets.only(left: 10, right: 10, top: 10, bottom: 10),
                           decoration: BoxDecoration(
                             color: Colors.orange[100],
                             borderRadius: BorderRadius.circular(10),
@@ -123,7 +124,7 @@ class _ViewConnectBotState extends State<ViewConnectBot> {
 
                         Container(
                           padding: EdgeInsets.all(10),
-                          margin: EdgeInsets.only(left: 40, right: 40, top: 0, bottom: 0),
+                          margin: EdgeInsets.only(left: 10, right: 10, top: 0, bottom: 0),
                           decoration: BoxDecoration(
                             color: isConnect ? Colors.green[100] : Colors.red[100],
                             borderRadius: BorderRadius.circular(10),
@@ -168,7 +169,7 @@ class _ViewConnectBotState extends State<ViewConnectBot> {
 
                 Container(
                   padding: EdgeInsets.all(10),
-                  margin: EdgeInsets.only(left: 40, right: 40, top: 10, bottom: 10),
+                  margin: EdgeInsets.only(left: 10, right: 10, top: 10, bottom: 10),
                   decoration: BoxDecoration(
                     color: widget.boolStatusConnectToSocketServer ? Colors.green[100] : Colors.red[100],
                     borderRadius: BorderRadius.circular(10),
@@ -211,7 +212,7 @@ class _ViewConnectBotState extends State<ViewConnectBot> {
 
                         Container(
                           padding: EdgeInsets.all(10),
-                          margin: EdgeInsets.only(left: 40, right: 40, top: 5, bottom: 5),
+                          margin: EdgeInsets.only(left: 10, right: 10, top: 5, bottom: 5),
                           decoration: BoxDecoration(
                             color: widget.boolStatusSendDataToSocketServer ? Colors.green[100] : Colors.red[100],
                             borderRadius: BorderRadius.circular(10),
@@ -278,6 +279,15 @@ class _ViewConnectBotState extends State<ViewConnectBot> {
           ],
         ),
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          //-- methode appeler pour ouvrir le modal du formulaire
+          showViewFormCredential(context, 'Connexion Wi-Fi', 'Please enter your Credential Wifi details.');
+
+        },
+        tooltip: 'AddCredential',
+        child: const Icon(Icons.settings_outlined),
+      )
     );
   }
 }

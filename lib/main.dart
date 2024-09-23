@@ -1,4 +1,5 @@
 import 'package:app_connect_bot/controller/controller_connect.dart';
+import 'package:app_connect_bot/variables/var.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -19,8 +20,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home:  ControllerConnect(
           title: 'Connect Bot',
-          port_server_socket: 8765,
-          credential: '{"ssid":"nom_du_wifi","password":"mot_de_passe"}',
+
       ),
     );
   }
